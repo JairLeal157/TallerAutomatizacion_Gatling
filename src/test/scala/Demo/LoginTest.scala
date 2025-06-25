@@ -27,7 +27,7 @@ class LoginTest extends Simulation{
       http("Create Contact")
         .post("/contacts")
         .header("Authorization", "Bearer ${authToken}")
-               .body(StringBody(
+        .body(StringBody(
           "{\n" +
           "  \"firstName\": \"John\",\n" +
           "  \"lastName\": \"Doe\",\n" +
@@ -42,7 +42,7 @@ class LoginTest extends Simulation{
           "  \"country\": \"USA\"\n" +
           "}"
         )).asJson
-        .check(status.is(201)
+        .check(status.is(201))
     )
 
 
