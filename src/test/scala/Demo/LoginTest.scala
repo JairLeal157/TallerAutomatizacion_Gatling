@@ -15,7 +15,7 @@ class LoginTest extends Simulation{
   // 2 Scenario Definition
   val scn = scenario("Login").
     exec(http("login")
-      .post(s"users/login")
+      .post("users/login")
       .body(StringBody("""{ "email": "${email}", "password": "${password}" }""")).asJson
        //Recibir información de la cuenta
       .check(status.is(200))
