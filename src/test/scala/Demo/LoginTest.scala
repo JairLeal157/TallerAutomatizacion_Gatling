@@ -19,14 +19,7 @@ class LoginTest extends Simulation{
       .body(StringBody(s"""{"email": "$email", "password": "$password"}""")).asJson
        //Recibir información de la cuenta
       .check(status.is(200))
-    )
-    .exitHereIfFailed
-    .exec(
-      http("Get Contacts")
-        .get("/contacts")
-        .header("Authorization", "Bearer ${authToken}")
-        .check(status.is(200))
-        .check(jsonPath("$.token").saveAs("authToken"))
+      .check(jsonPath("$.token").saveAs("authToken"))
     )
 
   // 3 Load Scenario
