@@ -27,7 +27,7 @@ class LoginTest extends Simulation{
     .exec(
       http("Create Contact")
         .post("/contacts")
-        .header("Authorization", "Bearer ${token}")
+        .header("Authorization", s"Bearer ${Data.token}")
         .body(StringBody(
           "{\n" +
           "  \"firstName\": \"John\",\n" +
