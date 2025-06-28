@@ -21,7 +21,7 @@ class LoginTest extends Simulation {
   val loginScenario = scenario("Login Scenario")
     .exec(
       http("Login Request")
-        .post("/users/login")
+        .post(s"users/login")
         .body(StringBody(
           s"""{
              |  "email": "$email",
@@ -40,7 +40,7 @@ class LoginTest extends Simulation {
   val createContactScenario = scenario("Create Contact Scenario")
     .exec(
       http("Create Contact Request")
-        .post("/contacts")
+        .post("contacts")
         .header("Authorization", "Bearer ${authToken}")
         .body(StringBody(
           s"""{
